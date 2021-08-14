@@ -2,21 +2,20 @@ package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kafka.LibraryEventsProducerApplication;
-import com.kafka.controller.LibraryEventsController;
 import com.kafka.domain.Book;
 import com.kafka.domain.LibraryEvent;
 import com.kafka.producer.LibraryEventProducer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import javax.validation.Validator;
 
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.when;
@@ -39,8 +38,10 @@ public class LibraryEventControllerUnitTest {
     @MockBean
     LibraryEventProducer libraryEventProducer;
 
+    private Validator validator;
+
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
