@@ -39,9 +39,6 @@ public class LibraryEventsControllerTest {
     @Autowired
     TestRestTemplate testRestTemplate;
 
-
-//    public static EmbeddedKafkaRule embeddedKafkaRule = new EmbeddedKafkaRule(1,true,TOPIC);
-
     @Autowired
     EmbeddedKafkaBroker embeddedKafkaBroker;
 
